@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Edit User</title>
+</head>
+<body>
+   <div class="container">
+    <div class="row">
+        <form action="/updateuser" method="POST">
+            <div class="form-row">
+                <h4>Edit User Infomations</h4>
+            <div class="form-group">
+                <label for="inputAddress">First Name</label>
+                <input type="text" class="form-control" name="firstName" placeholder="First Name" value="<%= data.firstName %>">
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Last Name</label>
+                <input type="text" class="form-control" name="lastName" placeholder="Last Name" value="<%=data.lastName %>">
+              </div>
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <input type="text" class="form-control" name="address" placeholder="Address" value="<%=data.address %>">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Phone Number</label>
+                <input type="number" class="form-control" name="phonenumber" placeholder="Phone Number" value="<%=data.phonenumber %>">
+              </div>
+              <div class="form-group">
+                <input type="hidden" class="form-control" name="id" placeholder="Phone Number" value="<%=data.id %>" >
+              </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </form>
+    </div>
+
+   </div>
+</body>
+</html>
