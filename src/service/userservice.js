@@ -37,8 +37,8 @@ let handleUserLogin = (email,password)=>{
                     delete user.password
                     userData.user=user;
                   }else{
-                    userData.errorCode=0;
-                    userData.message=`Error`;
+                    userData.errorCode=1;
+                    userData.message=`Password is incorrect `;
                   }
                 }
                 else{
