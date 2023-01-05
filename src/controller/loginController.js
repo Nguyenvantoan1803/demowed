@@ -17,7 +17,24 @@ let authlogin = async (req,res)=>{
         user: userLogin.user?userLogin.user:{}
     })
 }
+let getUser =async(req,res)=>{
+    let id = req.body.id;
+    if(!id){
+        return res.status(200).json({
+            errorCode:1,
+            message:"Missing required paramter",
+            user:[]
+        })
+    }
+    let user = await userservice.getAllUser(id)
+    return res.status(200).json({
+        errorCode:0,
+        message:"OK",
+        user
+    })
+}
 
 module.exports={
-    authlogin:authlogin
+    authlogin:authlogin,
+    getUser:getUser
 }

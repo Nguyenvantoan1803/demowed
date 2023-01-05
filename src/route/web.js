@@ -1,8 +1,16 @@
 import express from "express"
 import homeController from "../controller/homeController"
 import loginController from "../controller/loginController"
+var cors = require('cors')
 let router = express.Router();
 let initWebRoutes = (app)=>{
+    var corsOptions = {
+    origin:'http://localhost:3000', 
+    header:'Access-Control-Allow-Origin',
+    credentials:true,      
+    optionSuccessStatus:200,
+      }
+    app.use(cors(corsOptions))
     router.get('/',homeController.getHomePage);
     router.get('/create_user',homeController.CreateCRUD);
     router.post('/create',homeController.CreateCRUDUser);
@@ -13,7 +21,8 @@ let initWebRoutes = (app)=>{
 
 
     //api
-    router.post('/api/login',loginController.authlogin)
+    router.post('/api/login',loginController.authlogin);
+    router.get('/api/getalluser',loginController.getUser)
     return app.use("/",router)
 }
 module.exports=initWebRoutes;
