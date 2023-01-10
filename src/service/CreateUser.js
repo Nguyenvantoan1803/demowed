@@ -78,10 +78,8 @@ let EditUsernfomation=(data)=>{
                 user.address= data.address;
                 user.phonenumber=data.phonenumber;
 
-                await user.save();
-                let findAll = await db.User.findAll();  
-                resolve(findAll);
             }
+            
             else{
                 resolve()
             }
